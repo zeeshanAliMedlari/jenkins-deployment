@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: jenkins
+  namespace: argocd  # Ensure this matches your ArgoCD namespace
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/your-repo/jenkins-deployment.git'
+    path: 'jenkins'
+    targetRevision: HEAD
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: jenkins  # Namespace to deploy Jenkins
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+

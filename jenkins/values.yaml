@@ -1,0 +1,8 @@
+controller:
+  admin:
+    username: admin  # Updated key
+    password: admin  # You can change this to a secure password
+  serviceType: LoadBalancer  # Change to LoadBalancer or NodePort if required
+  ingress:
+    enabled: false
+
